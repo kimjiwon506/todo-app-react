@@ -22,11 +22,14 @@ function App() {
     setTodos(todos.concat(todo));
     nextId.current += 1; //nextId에 1씩 더하기
   });
+  const onRemove = useCallback((id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }, [todos]);
   return (
     <div className="App">
       <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onRemove={onRemove} />
       </TodoTemplate>
     </div>
   );
