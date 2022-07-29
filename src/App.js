@@ -8,8 +8,8 @@ import { useState } from 'react';
 // TODO: TodoTemplate, TodoInsert, TodoListItem, TodoList 네개의 컴포넌트로 분리해서 만들기
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: '할일1', checked: false },
-    { id: 2, text: '할일2', checked: false },
+    { id: 1, text: '할일1', checked: true },
+    { id: 2, text: '할일2', checked: true },
     { id: 3, text: '할일3', checked: false },
   ]);
   return (
