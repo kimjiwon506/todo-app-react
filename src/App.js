@@ -28,13 +28,13 @@ function App() {
     },
     [todos],
   );
-  const onToggle = useCallback((id) => {
+  const onToggle = useCallback(id => {
     setTodos(
-      todos.map((todo) =>
+      todos.map(todo =>
         todo.id === id ? { ...todo, checked: !todo.checked } : todo,
       ),
     );
-  }, []);
+  }, [todos]);
   return (
     <div className="App">
       <TodoTemplate>
