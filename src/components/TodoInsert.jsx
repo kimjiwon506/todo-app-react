@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { MdAdd } from 'react-icons/md';
 import todoInsert from '../style/TodoInsert.scss';
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState('');
   // const onChange = useCallback((e) => {
   //   return setValue(e.targe.value);
@@ -11,8 +11,16 @@ const TodoInsert = () => {
     setValue(e.target.value);
   }, []);
 
+  const onSubmit = useCallback(
+    (e) => {
+      onInsert(value);
+      setValue(''); //value값 초기화
+      e.preventDefault();
+    },
+    [onInsert, value],
+  );
   return (
-    <form action="" className="TodoInsert">
+    <form action="" className="TodoInsert" onSubmit={onSubmit}>
       <input
         type="text"
         placeholder="할일을 입력하세요."
